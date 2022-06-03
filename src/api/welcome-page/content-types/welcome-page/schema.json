@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "welcome_pages",
+  "info": {
+    "singularName": "welcome-page",
+    "pluralName": "welcome-pages",
+    "displayName": "WelcomePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "bg_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
