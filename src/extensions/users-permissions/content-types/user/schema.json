@@ -76,6 +76,12 @@
       "relation": "manyToMany",
       "target": "api::event.event",
       "mappedBy": "users"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "users_permissions_user"
     }
   }
 }
