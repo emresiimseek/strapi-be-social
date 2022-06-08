@@ -15,16 +15,16 @@
     "description": {
       "type": "text"
     },
-    "users_permissions_user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "comments"
-    },
     "event": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::event.event",
+      "inversedBy": "comments"
+    },
+    "user_comments": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
       "inversedBy": "comments"
     }
   }

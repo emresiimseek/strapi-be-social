@@ -81,7 +81,19 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::comment.comment",
-      "mappedBy": "users_permissions_user"
+      "mappedBy": "user_comments"
+    },
+    "users_follow": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "users_follow_me"
+    },
+    "users_follow_me": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "users_follow"
     }
   }
 }
