@@ -46,6 +46,12 @@
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "event"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "events"
     }
   }
 }
