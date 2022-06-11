@@ -94,6 +94,16 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "users_follow"
+    },
+    "profile_photo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
