@@ -52,6 +52,12 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "events"
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::like.like",
+      "mappedBy": "event"
     }
   }
 }
