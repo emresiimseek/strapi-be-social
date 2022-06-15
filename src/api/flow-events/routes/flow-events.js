@@ -3,7 +3,7 @@ module.exports = {
     {
       method: "POST",
       path: "/flow-events",
-      handler: "flow-events.flowEvents",
+      handler: "flow-events.getEventsByUserId",
       config: {
         policies: [],
         middlewares: [],
