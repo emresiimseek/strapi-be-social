@@ -52,6 +52,7 @@ module.exports = {
               args: {
                 userId: nexus.intArg(),
                 userIds: nexus.list(nexus.intArg()),
+                follow: nexus.booleanArg(),
               },
               async resolve(parent, args, ctx) {
                 const user = await strapi.entityService.findOne(
@@ -67,7 +68,13 @@ module.exports = {
                   args.userId,
                   {
                     data: {
-                      users_follow: [...userFollowUserIds, ...args.userIds],
+                      users_follow: args.follow
+                        ? [...userFollowUserIds, ...args.userIds]
+                        : [
+                            ...userFollowUserIds.filter(
+                              (id) => id !== args.userIds[0]
+                            ),
+                          ],
                     },
                     populate: { users_follow: true },
                   }
