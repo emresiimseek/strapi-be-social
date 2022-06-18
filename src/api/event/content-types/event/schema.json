@@ -53,11 +53,11 @@
       "target": "api::category.category",
       "mappedBy": "events"
     },
-    "likes": {
+    "event_likes": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::like.like",
-      "mappedBy": "event"
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "users_likes"
     }
   }
 }

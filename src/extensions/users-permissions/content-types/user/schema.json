@@ -96,20 +96,21 @@
       "inversedBy": "users_follow"
     },
     "profile_photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "likes": {
+    "users_likes": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::like.like",
-      "mappedBy": "user"
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "event_likes"
     }
   }
 }
