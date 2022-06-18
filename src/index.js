@@ -44,6 +44,40 @@ module.exports = {
             });
           },
         }),
+        nexus.extendType({
+          type: "Mutation",
+          definition(t) {
+            t.field("followUser", {
+              type: "UsersPermissionsUser",
+              args: {
+                userId: nexus.intArg(),
+                userIds: nexus.list(nexus.intArg()),
+              },
+              async resolve(parent, args, ctx) {
+                const user = await strapi.entityService.findOne(
+                  "plugin::users-permissions.user",
+                  args.userId,
+                  { populate: { users_follow: true } }
+                );
+
+                const userFollowUserIds = user.users_follow.map((u) => u.id);
+
+                const updatedUser = await strapi.entityService.update(
+                  "plugin::users-permissions.user",
+                  1,
+                  {
+                    data: {
+                      users_follow: [...userFollowUserIds, ...args.userIds],
+                    },
+                    populate: { users_follow: true },
+                  }
+                );
+
+                return updatedUser;
+              },
+            });
+          },
+        }),
       ],
 
       resolversConfig: {
