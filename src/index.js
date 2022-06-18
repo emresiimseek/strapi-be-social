@@ -64,7 +64,7 @@ module.exports = {
 
                 const updatedUser = await strapi.entityService.update(
                   "plugin::users-permissions.user",
-                  1,
+                  args.userId,
                   {
                     data: {
                       users_follow: [...userFollowUserIds, ...args.userIds],
