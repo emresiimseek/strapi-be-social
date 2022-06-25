@@ -38,11 +38,11 @@
       "target": "api::event.event",
       "inversedBy": "posts"
     },
-    "event_likes": {
+    "post_likes": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "posts_likes"
+      "inversedBy": "like_posts"
     }
   }
 }
