@@ -111,6 +111,18 @@
       "relation": "manyToMany",
       "target": "api::event.event",
       "inversedBy": "event_likes"
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "users"
+    },
+    "posts_likes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "inversedBy": "event_likes"
     }
   }
 }
