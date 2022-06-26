@@ -32,9 +32,9 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "posts"
     },
-    "events": {
+    "event": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::event.event",
       "inversedBy": "posts"
     },
