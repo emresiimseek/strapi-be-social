@@ -20,7 +20,16 @@ module.exports = createCoreController("api::event.event", ({ strapi }) => ({
     const friendsEvents = user1.users_follow.flatMap((f) => f.events);
     const events = [...user1.events, ...friendsEvents];
 
-    return events;
+    // return events;
+    const shortedEvents = events.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+
+    const filteredEvents = shortedEvents.filter(
+      (v, i, a) => a.findIndex((v2) => v2.id === v.id) === i
+    );
+
+    return filteredEvents;
 
     // const sanitizedEntries = await this.sanitizeOutput(allEvents, ctx);
     // return this.transformResponse(sanitizedEntries);
