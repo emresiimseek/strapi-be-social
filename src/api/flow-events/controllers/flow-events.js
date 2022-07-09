@@ -22,6 +22,7 @@ module.exports = createCoreController("api::event.event", ({ strapi }) => ({
     const friendsAttendeesEvents = user1.users_follow.flatMap((f) => f.events);
     const events = [
       ...user1.events,
+      ...user1.owner_events,
       ...friendsEvents,
       ...friendsAttendeesEvents,
     ];
