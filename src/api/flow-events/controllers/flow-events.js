@@ -18,14 +18,16 @@ module.exports = createCoreController("api::event.event", ({ strapi }) => ({
         },
       });
 
-    const friendsEvents = user1.users_follow.flatMap((f) => f.owner_events);
-    const friendsAttendeesEvents = user1.users_follow.flatMap((f) => f.events);
+    const friendsEvents = user1?.users_follow.flatMap((f) => f.owner_events);
+    const friendsAttendeesEvents = user1?.users_follow.flatMap((f) => f.events);
     const events = [
-      ...user1.events,
+      ...user1?.events,
       ...user1.owner_events,
       ...friendsEvents,
       ...friendsAttendeesEvents,
     ];
+
+    console.log(events);
 
     // return events;
     const shortedEvents = events
