@@ -16,7 +16,7 @@
       "type": "string",
       "required": true
     },
-    "users": {
+    "attendees": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
@@ -64,6 +64,12 @@
       "relation": "oneToMany",
       "target": "api::post.post",
       "mappedBy": "event"
+    },
+    "owners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "owner_events"
     }
   }
 }

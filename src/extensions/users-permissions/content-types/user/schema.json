@@ -71,12 +71,6 @@
       "type": "string",
       "required": true
     },
-    "events": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event.event",
-      "mappedBy": "users"
-    },
     "comments": {
       "type": "relation",
       "relation": "oneToMany",
@@ -123,6 +117,18 @@
       "relation": "manyToMany",
       "target": "api::post.post",
       "mappedBy": "post_likes"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "attendees"
+    },
+    "owner_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "owners"
     }
   }
 }

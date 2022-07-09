@@ -9,21 +9,29 @@ module.exports = createCoreController("api::event.event", ({ strapi }) => ({
         sort: { createdAt: "DESC" },
         populate: {
           events: true,
+          owner_events: true,
           users_follow: {
             populate: {
-              events: true,
+              owner_events: true,
             },
           },
         },
       });
 
-    const friendsEvents = user1.users_follow.flatMap((f) => f.events);
-    const events = [...user1.events, ...friendsEvents];
+    const friendsEvents = user1.users_follow.flatMap((f) => f.owner_events);
+    const friendsAttendeesEvents = user1.users_follow.flatMap((f) => f.events);
+    const events = [
+      ...user1.events,
+      ...friendsEvents,
+      ...friendsAttendeesEvents,
+    ];
 
     // return events;
-    const shortedEvents = events.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    );
+    const shortedEvents = events
+      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+      .filter((e) => e);
+
+    console.log(shortedEvents);
 
     const filteredEvents = shortedEvents.filter(
       (v, i, a) => a.findIndex((v2) => v2.id === v.id) === i
