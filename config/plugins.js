@@ -27,4 +27,28 @@ module.exports = ({ env }) => ({
     },
   },
   // ...
+  io: {
+    enabled: true,
+    config: {
+      IOServerOptions: {
+        cors: {
+          origin: [
+            "http://localhost:1337",
+            "http://localhost:3001",
+            "http://192.168.1.135:8081",
+          ],
+          methods: ["GET"],
+        },
+      },
+      contentTypes: "*",
+      events: [
+        {
+          name: "connection",
+          handler: ({ strapi }, socket) => {
+            strapi.log.info(`[io] new connection with id ${socket.id}`);
+          },
+        },
+      ],
+    },
+  },
 });
