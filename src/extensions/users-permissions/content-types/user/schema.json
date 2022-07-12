@@ -100,12 +100,6 @@
         "audios"
       ]
     },
-    "users_likes": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event.event",
-      "inversedBy": "event_likes"
-    },
     "posts": {
       "type": "relation",
       "relation": "manyToMany",
@@ -118,17 +112,23 @@
       "target": "api::post.post",
       "mappedBy": "post_likes"
     },
-    "events": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event.event",
-      "inversedBy": "attendees"
-    },
     "owner_events": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::event.event",
-      "inversedBy": "owners"
+      "mappedBy": "owners"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "attendees"
+    },
+    "user_likes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "event_likes"
     }
   }
 }

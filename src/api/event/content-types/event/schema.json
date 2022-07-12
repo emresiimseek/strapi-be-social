@@ -16,12 +16,6 @@
       "type": "string",
       "required": true
     },
-    "attendees": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "events"
-    },
     "description": {
       "type": "text",
       "required": true
@@ -53,12 +47,6 @@
       "target": "api::category.category",
       "mappedBy": "events"
     },
-    "event_likes": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "users_likes"
-    },
     "posts": {
       "type": "relation",
       "relation": "oneToMany",
@@ -70,6 +58,18 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "owner_events"
+    },
+    "attendees": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "events"
+    },
+    "event_likes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_likes"
     }
   }
 }
