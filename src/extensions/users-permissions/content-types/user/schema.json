@@ -129,6 +129,12 @@
       "relation": "manyToMany",
       "target": "api::event.event",
       "inversedBy": "event_likes"
+    },
+    "notifications": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "related_users"
     }
   }
 }
