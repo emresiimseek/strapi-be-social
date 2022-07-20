@@ -135,6 +135,12 @@
       "relation": "manyToMany",
       "target": "api::notification.notification",
       "mappedBy": "related_users"
+    },
+    "event_requests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-request.event-request",
+      "mappedBy": "user"
     }
   }
 }

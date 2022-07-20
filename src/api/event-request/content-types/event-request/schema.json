@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_requests",
+  "info": {
+    "singularName": "event-request",
+    "pluralName": "event-requests",
+    "displayName": "EventRequest",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "event_requests"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "event_requests"
+    }
+  }
+}

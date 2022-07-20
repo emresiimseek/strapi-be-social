@@ -76,6 +76,12 @@
       "relation": "oneToMany",
       "target": "api::notification.notification",
       "mappedBy": "event"
+    },
+    "event_requests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-request.event-request",
+      "mappedBy": "event"
     }
   }
 }
