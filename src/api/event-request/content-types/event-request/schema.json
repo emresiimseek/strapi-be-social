@@ -30,9 +30,11 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "approved",
-        "denied"
-      ]
+        "pending",
+        "accepted",
+        "rejected"
+      ],
+      "default": "pending"
     }
   }
 }
