@@ -26,6 +26,13 @@
       "relation": "manyToOne",
       "target": "api::event.event",
       "inversedBy": "event_requests"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "approved",
+        "denied"
+      ]
     }
   }
 }
