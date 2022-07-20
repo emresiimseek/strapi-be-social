@@ -10,6 +10,7 @@ module.exports = createCoreController("api::event.event", ({ strapi }) => ({
         populate: {
           events: true,
           owner_events: true,
+          event_requests: true,
           users_follow: {
             populate: {
               owner_events: true,
