@@ -36,9 +36,9 @@
       ],
       "default": "pending"
     },
-    "notification": {
+    "notifications": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::notification.notification",
       "mappedBy": "event_request"
     }

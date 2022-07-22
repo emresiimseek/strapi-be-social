@@ -53,9 +53,9 @@
     },
     "event_request": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::event-request.event-request",
-      "inversedBy": "notification"
+      "inversedBy": "notifications"
     }
   }
 }
