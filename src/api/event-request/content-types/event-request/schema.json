@@ -35,6 +35,12 @@
         "rejected"
       ],
       "default": "pending"
+    },
+    "notification": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::notification.notification",
+      "inversedBy": "event_request"
     }
   }
 }

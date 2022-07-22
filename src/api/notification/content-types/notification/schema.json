@@ -49,6 +49,12 @@
         "request_to_join_event",
         "response_to_join_event"
       ]
+    },
+    "event_request": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event-request.event-request",
+      "inversedBy": "notification"
     }
   }
 }
