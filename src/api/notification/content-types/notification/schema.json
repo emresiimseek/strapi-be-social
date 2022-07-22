@@ -47,7 +47,8 @@
         "like_event",
         "like_post",
         "request_to_join_event",
-        "response_to_join_event"
+        "event_request_accepted",
+        "event_request_rejected"
       ]
     },
     "event_request": {

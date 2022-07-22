@@ -40,7 +40,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::notification.notification",
-      "inversedBy": "event_request"
+      "mappedBy": "event_request"
     }
   }
 }
