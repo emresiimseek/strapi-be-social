@@ -2,9 +2,6 @@ module.exports = ({ env }) => ({
   // ...
   upload: {
     config: {
-      breakpoints: {
-        large: 1000,
-      },
       provider: "cloudinary",
       providerOptions: {
         cloud_name: env("CLOUDINARY_NAME"),
