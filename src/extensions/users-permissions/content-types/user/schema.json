@@ -71,12 +71,6 @@
       "type": "string",
       "required": true
     },
-    "comments": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::comment.comment",
-      "mappedBy": "user_comments"
-    },
     "users_follow": {
       "type": "relation",
       "relation": "manyToMany",
@@ -140,6 +134,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::event-request.event-request",
+      "mappedBy": "user"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
       "mappedBy": "user"
     }
   }

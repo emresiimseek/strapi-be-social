@@ -21,7 +21,7 @@
       "target": "api::event.event",
       "inversedBy": "comments"
     },
-    "user_comments": {
+    "user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
