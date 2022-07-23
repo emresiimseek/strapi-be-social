@@ -44,6 +44,12 @@
       "relation": "manyToOne",
       "target": "api::post.post",
       "inversedBy": "comments"
+    },
+    "notifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "comment"
     }
   }
 }

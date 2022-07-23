@@ -56,6 +56,12 @@
       "relation": "manyToOne",
       "target": "api::event-request.event-request",
       "inversedBy": "notifications"
+    },
+    "comment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::comment.comment",
+      "inversedBy": "notifications"
     }
   }
 }
