@@ -45,6 +45,35 @@ module.exports = {
           },
         }),
         nexus.extendType({
+          type: "Query",
+          definition(t) {
+            t.field("getExternalEventSuggestions", {
+              type: "EventEntityResponseCollection",
+              args: {},
+              async resolve(parent, args, ctx) {
+                const datas = await strapi
+                  .controller("api::external-event.external-event")
+                  .getSuggestions();
+
+                console.log(datas);
+
+                const transformedArgs = transformArgs(args, {
+                  contentType:
+                    strapi.contentTypes["api::external-event.external-event"],
+                  usePagination: false,
+                });
+                const { toEntityResponseCollection } = strapi
+                  .plugin("graphql")
+                  .service("format").returnTypes;
+                return toEntityResponseCollection(datas, {
+                  args: transformedArgs,
+                  resourceUID: "api::external-event.external-event",
+                });
+              },
+            });
+          },
+        }),
+        nexus.extendType({
           type: "Mutation",
           definition(t) {
             t.field("followUser", {
