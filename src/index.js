@@ -24,7 +24,7 @@ module.exports = {
               args: { userId: nexus.intArg() },
               async resolve(parent, args, ctx) {
                 const datas = await strapi
-                  .controller("api::flow-events.flow-events")
+                  .controller("api::flow-event.flow-event")
                   .getEventsByUserId({
                     request: { body: { userId: args.userId } },
                   });

@@ -2,8 +2,8 @@ module.exports = {
   routes: [
     {
       method: "POST",
-      path: "/flow-events",
-      handler: "flow-events.getEventsByUserId",
+      path: "/flow-event",
+      handler: "flow-event.getEventsByUserId",
       config: {
         policies: [],
         middlewares: [],
