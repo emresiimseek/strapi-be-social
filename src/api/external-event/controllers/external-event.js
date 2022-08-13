@@ -12,6 +12,7 @@ module.exports = createCoreController(
     async getSuggestions(ctx) {
       const externalEvents = await super.find({});
       console.log(externalEvents);
+
       return externalEvents.data;
     },
   })

@@ -49,13 +49,23 @@ module.exports = {
           definition(t) {
             t.field("getExternalEventSuggestions", {
               type: "EventEntityResponseCollection",
-              args: {},
+              args: {
+                city: nexus.stringArg(),
+                date: nexus.stringArg(),
+                category: nexus.stringArg(),
+              },
               async resolve(parent, args, ctx) {
                 const datas = await strapi
                   .controller("api::external-event.external-event")
-                  .getSuggestions();
-
-                console.log(datas);
+                  .getSuggestions({
+                    request: {
+                      body: {
+                        city: args.city,
+                        date: args.date,
+                        category: args.category,
+                      },
+                    },
+                  });
 
                 const transformedArgs = transformArgs(args, {
                   contentType:
